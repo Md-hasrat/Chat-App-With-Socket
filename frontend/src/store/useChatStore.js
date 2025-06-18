@@ -36,7 +36,7 @@ export const useChatStore = create((set, get) => ({
     if (!userId) return toast.error("Invalid user selected");
     set({ isMessagesLoading: true });
     try {
-      const res = await axiosInstance.get(`/message/${userId}`);
+      const res = await axiosInstance.get(`/message/chat/${userId}`);
       set({ messages: res.data });
     } catch (error) {
       toast.error(error?.response?.data?.message || "Failed to load messages");
